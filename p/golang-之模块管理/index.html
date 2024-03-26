@@ -403,8 +403,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; go get rsc.io/sampler@v1.3.1
-</span></span><span class="line"><span class="cl">&gt; go mod vendor
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get rsc.io/sampler@v1.3.1
+</span></span><span class="line"><span class="cl">go mod vendor
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="扩展">扩展</h2>
@@ -416,7 +416,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 开启 go module</span>
-</span></span><span class="line"><span class="cl">&gt; go env -w <span class="nv">GO111MODULE</span><span class="o">=</span>on
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GO111MODULE</span><span class="o">=</span>on
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="go-module-代理">go module 代理</h3>
@@ -441,19 +441,19 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 原始值：GOPROXY=https://proxy.golang.org,direct</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 取消使用代理</span>
-</span></span><span class="line"><span class="cl">&gt; go env -u GOPROXY
+</span></span><span class="line"><span class="cl">go env -u GOPROXY
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 百度代理</span>
-</span></span><span class="line"><span class="cl">&gt; go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.baidu.com
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.baidu.com
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 阿里云代理</span>
-</span></span><span class="line"><span class="cl">&gt; go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://mirrors.aliyun.com/goproxy/
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://mirrors.aliyun.com/goproxy/
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Goproxy 中国代理（七牛）</span>
-</span></span><span class="line"><span class="cl">&gt; go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># goproxy.io</span>
-</span></span><span class="line"><span class="cl">&gt; go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.io,direct
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.io,direct
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="go-install-安装">go install 安装</h3>
