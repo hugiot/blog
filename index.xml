@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>xiaocai&#39;s blog</title>
-        <link>https://demo.stack.jimmycai.com/</link>
+        <link>https://hugiot.github.io/blog/</link>
         <description>Recent content on xiaocai&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 26 Mar 2024 12:08:46 +0800</lastBuildDate><atom:link href="https://demo.stack.jimmycai.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 26 Mar 2024 12:08:46 +0800</lastBuildDate><atom:link href="https://hugiot.github.io/blog/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>归档</title>
-        <link>https://demo.stack.jimmycai.com/archives/</link>
+        <link>https://hugiot.github.io/blog/archives/</link>
         <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/archives/</guid>
+        <guid>https://hugiot.github.io/blog/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://demo.stack.jimmycai.com/links/</link>
+        <link>https://hugiot.github.io/blog/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/links/</guid>
+        <guid>https://hugiot.github.io/blog/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -51,10 +51,10 @@
         </item>
         <item>
         <title>搜索</title>
-        <link>https://demo.stack.jimmycai.com/search/</link>
+        <link>https://hugiot.github.io/blog/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://demo.stack.jimmycai.com/search/</guid>
+        <guid>https://hugiot.github.io/blog/search/</guid>
         <description></description>
         </item>
         

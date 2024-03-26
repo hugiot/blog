@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://demo.stack.jimmycai.com/</loc>
+    <loc>https://hugiot.github.io/blog/</loc>
     <lastmod>2024-03-26T12:08:46+08:00</lastmod>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/post/</loc>
+    <loc>https://hugiot.github.io/blog/post/</loc>
     <lastmod>2024-03-26T12:08:46+08:00</lastmod>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/page/</loc>
+    <loc>https://hugiot.github.io/blog/page/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/archives/</loc>
+    <loc>https://hugiot.github.io/blog/archives/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/categories/</loc>
+    <loc>https://hugiot.github.io/blog/categories/</loc>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/categories/default/</loc>
+    <loc>https://hugiot.github.io/blog/categories/default/</loc>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/links/</loc>
+    <loc>https://hugiot.github.io/blog/links/</loc>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/tags/</loc>
+    <loc>https://hugiot.github.io/blog/tags/</loc>
   </url><url>
-    <loc>https://demo.stack.jimmycai.com/search/</loc>
+    <loc>https://hugiot.github.io/blog/search/</loc>
   </url>
 </urlset>
