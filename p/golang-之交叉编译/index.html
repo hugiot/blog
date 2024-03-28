@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="简介 交叉编译，即在指定平台编译出其他平台可运行的程序 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 Mac 假定当前机">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# 简介 交叉编译，即在指定平台编译出其他平台可运行的程序 # 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 # Mac 假定">
 <title>golang 之交叉编译</title>
 
 <link rel='canonical' href='https://hugiot.github.io/blog/p/golang-%E4%B9%8B%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="golang 之交叉编译">
-<meta property='og:description' content="简介 交叉编译，即在指定平台编译出其他平台可运行的程序 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 Mac 假定当前机">
+<link rel="stylesheet" href="/blog/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="golang 之交叉编译">
+<meta property='og:description' content="# 简介 交叉编译，即在指定平台编译出其他平台可运行的程序 # 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 # Mac 假定">
 <meta property='og:url' content='https://hugiot.github.io/blog/p/golang-%E4%B9%8B%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/'>
 <meta property='og:site_name' content='xiaocai&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='编译' /><meta property='article:published_time' content='2024-03-26T11:34:24&#43;08:00'/><meta property='article:modified_time' content='2024-03-26T11:34:24&#43;08:00'/>
 <meta name="twitter:title" content="golang 之交叉编译">
-<meta name="twitter:description" content="简介 交叉编译，即在指定平台编译出其他平台可运行的程序 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 Mac 假定当前机">
+<meta name="twitter:description" content="# 简介 交叉编译，即在指定平台编译出其他平台可运行的程序 # 原生编译 以下示例默认目标机器架构为：amd64，如需要构建 arm64 需自行修改 GOARCH 参数 # Mac 假定">
     <link rel="shortcut icon" href="/favicon.png" />
 
     </head>
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/blog/img/avatar_hu17b1ece54c6b763aa99db30f50c7fe0e_147099_300x0_resize_box_3.png" width="300"
+                        <img src="/blog/img/avatar_hu8419d381b80933b6a1dc67491cbf6cae_101357_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -149,7 +149,7 @@
 
 
                 
-                <span>Links</span>
+                <span>链接</span>
             </a>
         </li>
         
@@ -301,6 +301,13 @@
                 </time>
             </div>
         
+
+        
+            <div>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-labelledby="bookOpenedIconTitle" stroke="#000" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="bookOpenedIconTitle">Book</title> <path d="M12 6s-2-2-4-2-5 2-5 2v14s3-2 5-2 4 2 4 2c1.333-1.333 2.667-2 4-2 1.333 0 3 .667 5 2V6c-2-1.333-3.667-2-5-2-1.333 0-2.667.667-4 2z"/> <path stroke-linecap="round" d="M12 6v14"/> </svg>
+                阅读量：<span id="busuanzi_value_page_pv">-</span>
+            </div>
+        
     </footer>
     
 
@@ -312,14 +319,20 @@
     <section class="article-content">
     
     
-    <h2 id="简介">简介</h2>
-<p>交叉编译，即在指定平台编译出其他平台可运行的程序</p>
-<h2 id="原生编译">原生编译</h2>
-<blockquote>
+    <h2 id="简介">
+    <a href="#%e7%ae%80%e4%bb%8b">#</a>
+    简介
+</h2><p>交叉编译，即在指定平台编译出其他平台可运行的程序</p>
+<h2 id="原生编译">
+    <a href="#%e5%8e%9f%e7%94%9f%e7%bc%96%e8%af%91">#</a>
+    原生编译
+</h2><blockquote>
 <p>以下示例默认目标机器架构为：<strong>amd64</strong>，如需要构建 <strong>arm64</strong> 需自行修改 <strong>GOARCH</strong> 参数</p>
 </blockquote>
-<h3 id="mac">Mac</h3>
-<blockquote>
+<h3 id="mac">
+    <a href="#mac">#</a>
+    Mac
+</h3><blockquote>
 <p>假定当前机器为：Mac 操作系统</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
@@ -336,8 +349,10 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build main.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="linux">Linux</h3>
-<blockquote>
+</div><h3 id="linux">
+    <a href="#linux">#</a>
+    Linux
+</h3><blockquote>
 <p>假定当前机器为：Linux 操作系统</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
@@ -354,8 +369,10 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build main.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="windows">Windows</h3>
-<blockquote>
+</div><h3 id="windows">
+    <a href="#windows">#</a>
+    Windows
+</h3><blockquote>
 <p>假定当前机器为：Windows 操作系统</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
@@ -372,12 +389,16 @@
 </span></span><span class="line"><span class="cl">SET <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> SET <span class="nv">GOOS</span><span class="o">=</span>linux SET <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build main.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="通过-cgo-编译">通过 CGO 编译</h2>
-<blockquote>
+</div><h2 id="通过-cgo-编译">
+    <a href="#%e9%80%9a%e8%bf%87-cgo-%e7%bc%96%e8%af%91">#</a>
+    通过 CGO 编译
+</h2><blockquote>
 <p>当包中包含 C 代码，就需要启用 CGO 功能进行编译</p>
 </blockquote>
-<h3 id="gcc-编译器">gcc 编译器</h3>
-<blockquote>
+<h3 id="gcc-编译器">
+    <a href="#gcc-%e7%bc%96%e8%af%91%e5%99%a8">#</a>
+    gcc 编译器
+</h3><blockquote>
 <p>主要参数：<strong>CGO_ENABLED</strong> 、 <strong>CC</strong></p>
 </blockquote>
 <p><strong>示例环境</strong></p>
@@ -407,22 +428,36 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">1</span> <span class="nv">CC</span><span class="o">=</span>musl-gcc go build main.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="扩展">扩展</h2>
-<h3 id="编译器">编译器</h3>
-<h4 id="gcc">gcc</h4>
-<p>GCC，全称为GNU Compiler Collection，是一个由GNU开发的编程语言编译器。最初，GCC只是作为C语言的编译器（GNU C Compiler）而存在，因此其最初的全称就是GNU C Compiler。随着时间的推移，GCC逐渐发展并扩展，变得能够支持更多的编程语言，包括C++、Fortran、Pascal、Objective-C、Java以及Ada等等。</p>
+</div><h2 id="扩展">
+    <a href="#%e6%89%a9%e5%b1%95">#</a>
+    扩展
+</h2><h3 id="编译器">
+    <a href="#%e7%bc%96%e8%af%91%e5%99%a8">#</a>
+    编译器
+</h3><h4 id="gcc">
+    <a href="#gcc">#</a>
+    gcc
+</h4><p>GCC，全称为GNU Compiler Collection，是一个由GNU开发的编程语言编译器。最初，GCC只是作为C语言的编译器（GNU C Compiler）而存在，因此其最初的全称就是GNU C Compiler。随着时间的推移，GCC逐渐发展并扩展，变得能够支持更多的编程语言，包括C++、Fortran、Pascal、Objective-C、Java以及Ada等等。</p>
 <p>GCC的一大特点是它的可移植性，即可支持多种硬件平台。例如，它不仅可以编译出在本地环境（如x86_64）运行的程序，还可以编译出在其他平台（如ARM）运行的程序，这被称为交叉编译。此外，GCC还具有按模块化设计的优点，这意味着它可以加入对新语言和新CPU架构的支持。</p>
 <p>总的来说，GCC是一款功能强大、使用广泛的编译器，不仅在软件开发领域有着广泛的应用，也在操作系统的开发中扮演着重要的角色。</p>
-<h4 id="gcc-aarch64-linux-gnu">gcc-aarch64-linux-gnu</h4>
-<p>gcc-aarch64-linux-gnu是一个专门为aarch64架构设计的交叉编译工具链，它是由Linaro公司基于GCC推出的ARM交叉编译工具。这个工具链主要用于在x86等其他架构的系统中编译出64位的ARM架构程序。</p>
+<h4 id="gcc-aarch64-linux-gnu">
+    <a href="#gcc-aarch64-linux-gnu">#</a>
+    gcc-aarch64-linux-gnu
+</h4><p>gcc-aarch64-linux-gnu是一个专门为aarch64架构设计的交叉编译工具链，它是由Linaro公司基于GCC推出的ARM交叉编译工具。这个工具链主要用于在x86等其他架构的系统中编译出64位的ARM架构程序。</p>
 <p>gcc-aarch64-linux-gnu常用于嵌入式代码的移植，例如裸机程序、u-boot、Linux kernel、文件系统和App应用程序等。此外，它还可以支持ARMv8 64位目标中的浮点运算策略。</p>
 <p>如果你需要在Ubuntu等操作系统上安装这个工具链，可以使用以下命令：sudo apt-get update; sudo apt-get install gcc-aarch64-linux-gnu。总的来说，gcc-aarch64-linux-gnu是一款强大而灵活的工具，能够大大提高开发和移植工作的效率。</p>
-<h4 id="musl-gcc">musl-gcc</h4>
-<p>musl-gcc是一个基于musl库的静态编译工具。它与传统的gcc工具链相似，但使用了musl库而不是传统的glibc库。静态编译的意思是将所有的代码和依赖库都打包到最终生成的可执行文件中，而不是像动态链接那样在运行时加载依赖库。</p>
+<h4 id="musl-gcc">
+    <a href="#musl-gcc">#</a>
+    musl-gcc
+</h4><p>musl-gcc是一个基于musl库的静态编译工具。它与传统的gcc工具链相似，但使用了musl库而不是传统的glibc库。静态编译的意思是将所有的代码和依赖库都打包到最终生成的可执行文件中，而不是像动态链接那样在运行时加载依赖库。</p>
 <p>Musl C library，全称是Micro Static Library，是一个用于Linux系统上的C标准库。它与GNU上的glibc以及Android上的bionic类似，但是采用MIT license，对于商业应用来说，相较于glibc要宽松。</p>
-<h3 id="安装编译器">安装编译器</h3>
-<h4 id="ubuntu--debian">Ubuntu / Debian</h4>
-<div class="highlight"><div class="chroma">
+<h3 id="安装编译器">
+    <a href="#%e5%ae%89%e8%a3%85%e7%bc%96%e8%af%91%e5%99%a8">#</a>
+    安装编译器
+</h3><h4 id="ubuntu--debian">
+    <a href="#ubuntu--debian">#</a>
+    Ubuntu / Debian
+</h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -570,8 +605,21 @@
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.24.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
+
+    
+        <section class="powerby">
+            
+                访问量：<span id="busuanzi_value_site_pv">-</span>
+            
+
+            
+                &nbsp;&nbsp;/&nbsp;&nbsp;
+                访客量：<span id="busuanzi_value_site_uv">-</span>
+            
+        </section>
+    
 </footer>
 
 
@@ -671,6 +719,8 @@
         document.head.appendChild(customFont);
     }());
 </script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     </body>
 </html>

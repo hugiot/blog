@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="简介 ab 测试工具是 apache 旗下的测试工具 安装 CentOS 1 yum -y install httpd-tools Ubuntu / Debian 1 apt -y install apache2-utils 使用说明 查看帮助 1 ab -h get请求 1 2 # url 最后需要以 / 结尾，否则会提示 url 错误 ab">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# 简介 ab 测试工具是 apache 旗下的测试工具 # 安装 # CentOS 1 yum -y install httpd-tools # Ubuntu / Debian 1 apt -y install apache2-utils # 使用说明 # 查看帮助 1 ab -h # get请求 1 2 # url 最后需要以 / 结尾，否则">
 <title>ab 工具的安装和使用</title>
 
 <link rel='canonical' href='https://hugiot.github.io/blog/p/ab-%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="ab 工具的安装和使用">
-<meta property='og:description' content="简介 ab 测试工具是 apache 旗下的测试工具 安装 CentOS 1 yum -y install httpd-tools Ubuntu / Debian 1 apt -y install apache2-utils 使用说明 查看帮助 1 ab -h get请求 1 2 # url 最后需要以 / 结尾，否则会提示 url 错误 ab">
+<link rel="stylesheet" href="/blog/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="ab 工具的安装和使用">
+<meta property='og:description' content="# 简介 ab 测试工具是 apache 旗下的测试工具 # 安装 # CentOS 1 yum -y install httpd-tools # Ubuntu / Debian 1 apt -y install apache2-utils # 使用说明 # 查看帮助 1 ab -h # get请求 1 2 # url 最后需要以 / 结尾，否则">
 <meta property='og:url' content='https://hugiot.github.io/blog/p/ab-%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/'>
 <meta property='og:site_name' content='xiaocai&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-03-26T10:13:06&#43;08:00'/><meta property='article:modified_time' content='2024-03-26T10:13:06&#43;08:00'/>
 <meta name="twitter:title" content="ab 工具的安装和使用">
-<meta name="twitter:description" content="简介 ab 测试工具是 apache 旗下的测试工具 安装 CentOS 1 yum -y install httpd-tools Ubuntu / Debian 1 apt -y install apache2-utils 使用说明 查看帮助 1 ab -h get请求 1 2 # url 最后需要以 / 结尾，否则会提示 url 错误 ab">
+<meta name="twitter:description" content="# 简介 ab 测试工具是 apache 旗下的测试工具 # 安装 # CentOS 1 yum -y install httpd-tools # Ubuntu / Debian 1 apt -y install apache2-utils # 使用说明 # 查看帮助 1 ab -h # get请求 1 2 # url 最后需要以 / 结尾，否则">
     <link rel="shortcut icon" href="/favicon.png" />
 
     </head>
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/blog/img/avatar_hu17b1ece54c6b763aa99db30f50c7fe0e_147099_300x0_resize_box_3.png" width="300"
+                        <img src="/blog/img/avatar_hu8419d381b80933b6a1dc67491cbf6cae_101357_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -149,7 +149,7 @@
 
 
                 
-                <span>Links</span>
+                <span>链接</span>
             </a>
         </li>
         
@@ -288,6 +288,13 @@
                 </time>
             </div>
         
+
+        
+            <div>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-labelledby="bookOpenedIconTitle" stroke="#000" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="bookOpenedIconTitle">Book</title> <path d="M12 6s-2-2-4-2-5 2-5 2v14s3-2 5-2 4 2 4 2c1.333-1.333 2.667-2 4-2 1.333 0 3 .667 5 2V6c-2-1.333-3.667-2-5-2-1.333 0-2.667.667-4 2z"/> <path stroke-linecap="round" d="M12 6v14"/> </svg>
+                阅读量：<span id="busuanzi_value_page_pv">-</span>
+            </div>
+        
     </footer>
     
 
@@ -299,11 +306,17 @@
     <section class="article-content">
     
     
-    <h2 id="简介">简介</h2>
-<p>ab 测试工具是 apache 旗下的测试工具</p>
-<h2 id="安装">安装</h2>
-<h3 id="centos">CentOS</h3>
-<div class="highlight"><div class="chroma">
+    <h2 id="简介">
+    <a href="#%e7%ae%80%e4%bb%8b">#</a>
+    简介
+</h2><p>ab 测试工具是 apache 旗下的测试工具</p>
+<h2 id="安装">
+    <a href="#%e5%ae%89%e8%a3%85">#</a>
+    安装
+</h2><h3 id="centos">
+    <a href="#centos">#</a>
+    CentOS
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -311,8 +324,10 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum -y install httpd-tools
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="ubuntu--debian">Ubuntu / Debian</h3>
-<div class="highlight"><div class="chroma">
+</div><h3 id="ubuntu--debian">
+    <a href="#ubuntu--debian">#</a>
+    Ubuntu / Debian
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -320,9 +335,13 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt -y install apache2-utils
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="使用说明">使用说明</h2>
-<h3 id="查看帮助">查看帮助</h3>
-<div class="highlight"><div class="chroma">
+</div><h2 id="使用说明">
+    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e">#</a>
+    使用说明
+</h2><h3 id="查看帮助">
+    <a href="#%e6%9f%a5%e7%9c%8b%e5%b8%ae%e5%8a%a9">#</a>
+    查看帮助
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -330,8 +349,10 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ab -h
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="get请求">get请求</h3>
-<div class="highlight"><div class="chroma">
+</div><h3 id="get请求">
+    <a href="#get%e8%af%b7%e6%b1%82">#</a>
+    get请求
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -341,8 +362,10 @@
 </span></span><span class="line"><span class="cl">ab http://www.baidu.com/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="post-请求携带-json-数据">post 请求（携带 json 数据）</h3>
-<p>示例 json 数据如下（json 数据存储于 message.json 文件中）：</p>
+</div><h3 id="post-请求携带-json-数据">
+    <a href="#post-%e8%af%b7%e6%b1%82%e6%90%ba%e5%b8%a6-json-%e6%95%b0%e6%8d%ae">#</a>
+    post 请求（携带 json 数据）
+</h3><p>示例 json 数据如下（json 数据存储于 message.json 文件中）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -367,8 +390,10 @@
 </span></span><span class="line"><span class="cl">ab -p message.json -T <span class="s1">&#39;application/json&#39;</span> http://www.baidu.com/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="性能测试">性能测试</h3>
-<div class="highlight"><div class="chroma">
+</div><h3 id="性能测试">
+    <a href="#%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95">#</a>
+    性能测试
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -384,8 +409,10 @@
 </span></span><span class="line"><span class="cl">ab -c <span class="m">50</span> http://www.baidu.com/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="abs">abs</h2>
-<p>用于测试 https 请求，用法同上，命令 <strong>ab</strong> 替换为 <strong>abs</strong></p>
+</div><h2 id="abs">
+    <a href="#abs">#</a>
+    abs
+</h2><p>用于测试 https 请求，用法同上，命令 <strong>ab</strong> 替换为 <strong>abs</strong></p>
 
 </section>
 
@@ -485,8 +512,21 @@
     
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.24.2">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
+
+    
+        <section class="powerby">
+            
+                访问量：<span id="busuanzi_value_site_pv">-</span>
+            
+
+            
+                &nbsp;&nbsp;/&nbsp;&nbsp;
+                访客量：<span id="busuanzi_value_site_uv">-</span>
+            
+        </section>
+    
 </footer>
 
 
@@ -586,6 +626,8 @@
         document.head.appendChild(customFont);
     }());
 </script>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     </body>
 </html>

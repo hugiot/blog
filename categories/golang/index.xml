@@ -12,11 +12,17 @@
         <pubDate>Tue, 26 Mar 2024 12:08:46 +0800</pubDate>
         
         <guid>https://hugiot.github.io/blog/p/golang-%E4%B9%8B%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86/</guid>
-        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;golang 模块管理，类似于 php 中的 composer 管理工具&lt;/p&gt;
-&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
-&lt;h3 id=&#34;帮助&#34;&gt;帮助&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+        <description>&lt;h2 id=&#34;简介&#34;&gt;
+    &lt;a href=&#34;#%e7%ae%80%e4%bb%8b&#34;&gt;#&lt;/a&gt;
+    简介
+&lt;/h2&gt;&lt;p&gt;golang 模块管理，类似于 php 中的 composer 管理工具&lt;/p&gt;
+&lt;h2 id=&#34;基础&#34;&gt;
+    &lt;a href=&#34;#%e5%9f%ba%e7%a1%80&#34;&gt;#&lt;/a&gt;
+    基础
+&lt;/h2&gt;&lt;h3 id=&#34;帮助&#34;&gt;
+    &lt;a href=&#34;#%e5%b8%ae%e5%8a%a9&#34;&gt;#&lt;/a&gt;
+    帮助
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -42,8 +48,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;why&lt;/span&gt;         &lt;span class=&#34;n&#34;&gt;explain&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;why&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;packages&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;modules&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;are&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;needed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;解释为什么需要该依赖&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;启用&#34;&gt;启用&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;启用&#34;&gt;
+    &lt;a href=&#34;#%e5%90%af%e7%94%a8&#34;&gt;#&lt;/a&gt;
+    启用
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -51,8 +59,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GO111MODULE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;on
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;查看模块列表&#34;&gt;查看模块列表&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;查看模块列表&#34;&gt;
+    &lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e6%a8%a1%e5%9d%97%e5%88%97%e8%a1%a8&#34;&gt;#&lt;/a&gt;
+    查看模块列表
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -60,8 +70,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go list -m -mod&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;mod all
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;下载依赖项&#34;&gt;下载依赖项&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;下载依赖项&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e4%be%9d%e8%b5%96%e9%a1%b9&#34;&gt;#&lt;/a&gt;
+    下载依赖项
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;提示：该操作会自动修改 go.mod 文件&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -84,8 +96,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go get golang.org/x/text@2df3781
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;查看依赖版本&#34;&gt;查看依赖版本&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;查看依赖版本&#34;&gt;
+    &lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e4%be%9d%e8%b5%96%e7%89%88%e6%9c%ac&#34;&gt;#&lt;/a&gt;
+    查看依赖版本
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -99,8 +113,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsc.io/sampler v1.0.0 v1.2.0 v1.2.1 v1.3.0 v1.3.1 v1.99.99
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;安装依赖&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e4%be%9d%e8%b5%96&#34;&gt;#&lt;/a&gt;
+    安装依赖
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;提示：该操作会自动下载依赖项，并同步到项目 &lt;strong&gt;vendor&lt;/strong&gt; 目录下&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -113,9 +129,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go mod vendor
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
-&lt;h3 id=&#34;修改环境变量&#34;&gt;修改环境变量&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%b1%95&#34;&gt;#&lt;/a&gt;
+    扩展
+&lt;/h2&gt;&lt;h3 id=&#34;修改环境变量&#34;&gt;
+    &lt;a href=&#34;#%e4%bf%ae%e6%94%b9%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f&#34;&gt;#&lt;/a&gt;
+    修改环境变量
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -125,8 +145,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GO111MODULE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;on
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go-module-代理&#34;&gt;go module 代理&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;go-module-代理&#34;&gt;
+    &lt;a href=&#34;#go-module-%e4%bb%a3%e7%90%86&#34;&gt;#&lt;/a&gt;
+    go module 代理
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -162,14 +184,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GOPROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://goproxy.io,direct
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go-install-安装&#34;&gt;go install 安装&lt;/h3&gt;
-&lt;ol&gt;
+&lt;/div&gt;&lt;h3 id=&#34;go-install-安装&#34;&gt;
+    &lt;a href=&#34;#go-install-%e5%ae%89%e8%a3%85&#34;&gt;#&lt;/a&gt;
+    go install 安装
+&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;生成结果文件&lt;/li&gt;
 &lt;li&gt;自动将编译好的文件移动到 $GOPATH/pkg 或 $GOPATH/bin&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;常见问题&#34;&gt;常见问题&lt;/h2&gt;
-&lt;h3 id=&#34;terminal-prompts-disabled&#34;&gt;terminal prompts disabled&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;go mod tidy&lt;/code&gt; 出现 fatal: could not read Username for &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;常见问题&#34;&gt;
+    &lt;a href=&#34;#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98&#34;&gt;#&lt;/a&gt;
+    常见问题
+&lt;/h2&gt;&lt;h3 id=&#34;terminal-prompts-disabled&#34;&gt;
+    &lt;a href=&#34;#terminal-prompts-disabled&#34;&gt;#&lt;/a&gt;
+    terminal prompts disabled
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;go mod tidy&lt;/code&gt; 出现 fatal: could not read Username for &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com&lt;/a&gt;&amp;rsquo;: terminal prompts disabled 错误&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -189,14 +217,20 @@
         <pubDate>Tue, 26 Mar 2024 11:34:24 +0800</pubDate>
         
         <guid>https://hugiot.github.io/blog/p/golang-%E4%B9%8B%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</guid>
-        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;交叉编译，即在指定平台编译出其他平台可运行的程序&lt;/p&gt;
-&lt;h2 id=&#34;原生编译&#34;&gt;原生编译&lt;/h2&gt;
-&lt;blockquote&gt;
+        <description>&lt;h2 id=&#34;简介&#34;&gt;
+    &lt;a href=&#34;#%e7%ae%80%e4%bb%8b&#34;&gt;#&lt;/a&gt;
+    简介
+&lt;/h2&gt;&lt;p&gt;交叉编译，即在指定平台编译出其他平台可运行的程序&lt;/p&gt;
+&lt;h2 id=&#34;原生编译&#34;&gt;
+    &lt;a href=&#34;#%e5%8e%9f%e7%94%9f%e7%bc%96%e8%af%91&#34;&gt;#&lt;/a&gt;
+    原生编译
+&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;以下示例默认目标机器架构为：&lt;strong&gt;amd64&lt;/strong&gt;，如需要构建 &lt;strong&gt;arm64&lt;/strong&gt; 需自行修改 &lt;strong&gt;GOARCH&lt;/strong&gt; 参数&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;mac&#34;&gt;Mac&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;h3 id=&#34;mac&#34;&gt;
+    &lt;a href=&#34;#mac&#34;&gt;#&lt;/a&gt;
+    Mac
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;假定当前机器为：Mac 操作系统&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -213,8 +247,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;windows &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;linux&#34;&gt;
+    &lt;a href=&#34;#linux&#34;&gt;#&lt;/a&gt;
+    Linux
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;假定当前机器为：Linux 操作系统&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -231,8 +267,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;windows &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;windows&#34;&gt;
+    &lt;a href=&#34;#windows&#34;&gt;#&lt;/a&gt;
+    Windows
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;假定当前机器为：Windows 操作系统&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -249,12 +287,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET &lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; SET &lt;span class=&#34;nv&#34;&gt;GOOS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;linux SET &lt;span class=&#34;nv&#34;&gt;GOARCH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;amd64 go build main.go
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;通过-cgo-编译&#34;&gt;通过 CGO 编译&lt;/h2&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h2 id=&#34;通过-cgo-编译&#34;&gt;
+    &lt;a href=&#34;#%e9%80%9a%e8%bf%87-cgo-%e7%bc%96%e8%af%91&#34;&gt;#&lt;/a&gt;
+    通过 CGO 编译
+&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;当包中包含 C 代码，就需要启用 CGO 功能进行编译&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;gcc-编译器&#34;&gt;gcc 编译器&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;h3 id=&#34;gcc-编译器&#34;&gt;
+    &lt;a href=&#34;#gcc-%e7%bc%96%e8%af%91%e5%99%a8&#34;&gt;#&lt;/a&gt;
+    gcc 编译器
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;主要参数：&lt;strong&gt;CGO_ENABLED&lt;/strong&gt; 、 &lt;strong&gt;CC&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;示例环境&lt;/strong&gt;&lt;/p&gt;
@@ -284,22 +326,36 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;CGO_ENABLED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;musl-gcc go build main.go
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
-&lt;h3 id=&#34;编译器&#34;&gt;编译器&lt;/h3&gt;
-&lt;h4 id=&#34;gcc&#34;&gt;gcc&lt;/h4&gt;
-&lt;p&gt;GCC，全称为GNU Compiler Collection，是一个由GNU开发的编程语言编译器。最初，GCC只是作为C语言的编译器（GNU C Compiler）而存在，因此其最初的全称就是GNU C Compiler。随着时间的推移，GCC逐渐发展并扩展，变得能够支持更多的编程语言，包括C++、Fortran、Pascal、Objective-C、Java以及Ada等等。&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%b1%95&#34;&gt;#&lt;/a&gt;
+    扩展
+&lt;/h2&gt;&lt;h3 id=&#34;编译器&#34;&gt;
+    &lt;a href=&#34;#%e7%bc%96%e8%af%91%e5%99%a8&#34;&gt;#&lt;/a&gt;
+    编译器
+&lt;/h3&gt;&lt;h4 id=&#34;gcc&#34;&gt;
+    &lt;a href=&#34;#gcc&#34;&gt;#&lt;/a&gt;
+    gcc
+&lt;/h4&gt;&lt;p&gt;GCC，全称为GNU Compiler Collection，是一个由GNU开发的编程语言编译器。最初，GCC只是作为C语言的编译器（GNU C Compiler）而存在，因此其最初的全称就是GNU C Compiler。随着时间的推移，GCC逐渐发展并扩展，变得能够支持更多的编程语言，包括C++、Fortran、Pascal、Objective-C、Java以及Ada等等。&lt;/p&gt;
 &lt;p&gt;GCC的一大特点是它的可移植性，即可支持多种硬件平台。例如，它不仅可以编译出在本地环境（如x86_64）运行的程序，还可以编译出在其他平台（如ARM）运行的程序，这被称为交叉编译。此外，GCC还具有按模块化设计的优点，这意味着它可以加入对新语言和新CPU架构的支持。&lt;/p&gt;
 &lt;p&gt;总的来说，GCC是一款功能强大、使用广泛的编译器，不仅在软件开发领域有着广泛的应用，也在操作系统的开发中扮演着重要的角色。&lt;/p&gt;
-&lt;h4 id=&#34;gcc-aarch64-linux-gnu&#34;&gt;gcc-aarch64-linux-gnu&lt;/h4&gt;
-&lt;p&gt;gcc-aarch64-linux-gnu是一个专门为aarch64架构设计的交叉编译工具链，它是由Linaro公司基于GCC推出的ARM交叉编译工具。这个工具链主要用于在x86等其他架构的系统中编译出64位的ARM架构程序。&lt;/p&gt;
+&lt;h4 id=&#34;gcc-aarch64-linux-gnu&#34;&gt;
+    &lt;a href=&#34;#gcc-aarch64-linux-gnu&#34;&gt;#&lt;/a&gt;
+    gcc-aarch64-linux-gnu
+&lt;/h4&gt;&lt;p&gt;gcc-aarch64-linux-gnu是一个专门为aarch64架构设计的交叉编译工具链，它是由Linaro公司基于GCC推出的ARM交叉编译工具。这个工具链主要用于在x86等其他架构的系统中编译出64位的ARM架构程序。&lt;/p&gt;
 &lt;p&gt;gcc-aarch64-linux-gnu常用于嵌入式代码的移植，例如裸机程序、u-boot、Linux kernel、文件系统和App应用程序等。此外，它还可以支持ARMv8 64位目标中的浮点运算策略。&lt;/p&gt;
 &lt;p&gt;如果你需要在Ubuntu等操作系统上安装这个工具链，可以使用以下命令：sudo apt-get update; sudo apt-get install gcc-aarch64-linux-gnu。总的来说，gcc-aarch64-linux-gnu是一款强大而灵活的工具，能够大大提高开发和移植工作的效率。&lt;/p&gt;
-&lt;h4 id=&#34;musl-gcc&#34;&gt;musl-gcc&lt;/h4&gt;
-&lt;p&gt;musl-gcc是一个基于musl库的静态编译工具。它与传统的gcc工具链相似，但使用了musl库而不是传统的glibc库。静态编译的意思是将所有的代码和依赖库都打包到最终生成的可执行文件中，而不是像动态链接那样在运行时加载依赖库。&lt;/p&gt;
+&lt;h4 id=&#34;musl-gcc&#34;&gt;
+    &lt;a href=&#34;#musl-gcc&#34;&gt;#&lt;/a&gt;
+    musl-gcc
+&lt;/h4&gt;&lt;p&gt;musl-gcc是一个基于musl库的静态编译工具。它与传统的gcc工具链相似，但使用了musl库而不是传统的glibc库。静态编译的意思是将所有的代码和依赖库都打包到最终生成的可执行文件中，而不是像动态链接那样在运行时加载依赖库。&lt;/p&gt;
 &lt;p&gt;Musl C library，全称是Micro Static Library，是一个用于Linux系统上的C标准库。它与GNU上的glibc以及Android上的bionic类似，但是采用MIT license，对于商业应用来说，相较于glibc要宽松。&lt;/p&gt;
-&lt;h3 id=&#34;安装编译器&#34;&gt;安装编译器&lt;/h3&gt;
-&lt;h4 id=&#34;ubuntu--debian&#34;&gt;Ubuntu / Debian&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h3 id=&#34;安装编译器&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e7%bc%96%e8%af%91%e5%99%a8&#34;&gt;#&lt;/a&gt;
+    安装编译器
+&lt;/h3&gt;&lt;h4 id=&#34;ubuntu--debian&#34;&gt;
+    &lt;a href=&#34;#ubuntu--debian&#34;&gt;#&lt;/a&gt;
+    Ubuntu / Debian
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -337,12 +393,18 @@
         <pubDate>Tue, 26 Mar 2024 11:07:33 +0800</pubDate>
         
         <guid>https://hugiot.github.io/blog/p/golang-%E5%85%8D%E5%AF%86%E6%8B%89%E5%8F%96%E7%A7%81%E6%9C%89%E5%BA%93/</guid>
-        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;go 免密码拉取私有库代码&lt;/p&gt;
-&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
-&lt;p&gt;主要分为 git 操作部分和 go 操作部分&lt;/p&gt;
-&lt;h3 id=&#34;git-部分&#34;&gt;git 部分&lt;/h3&gt;
-&lt;blockquote&gt;
+        <description>&lt;h2 id=&#34;简介&#34;&gt;
+    &lt;a href=&#34;#%e7%ae%80%e4%bb%8b&#34;&gt;#&lt;/a&gt;
+    简介
+&lt;/h2&gt;&lt;p&gt;go 免密码拉取私有库代码&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;
+    &lt;a href=&#34;#%e6%ad%a5%e9%aa%a4&#34;&gt;#&lt;/a&gt;
+    步骤
+&lt;/h2&gt;&lt;p&gt;主要分为 git 操作部分和 go 操作部分&lt;/p&gt;
+&lt;h3 id=&#34;git-部分&#34;&gt;
+    &lt;a href=&#34;#git-%e9%83%a8%e5%88%86&#34;&gt;#&lt;/a&gt;
+    git 部分
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;go 默认拉取代码方式是通过 https 协议进行代码获取，免密时需要修改默认拉取方式&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol&gt;
@@ -385,8 +447,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --list &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep insteadof
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go-部分&#34;&gt;go 部分&lt;/h3&gt;
-&lt;p&gt;通过设置 go 环境变量设置私有仓库地址&lt;/p&gt;
+&lt;/div&gt;&lt;h3 id=&#34;go-部分&#34;&gt;
+    &lt;a href=&#34;#go-%e9%83%a8%e5%88%86&#34;&gt;#&lt;/a&gt;
+    go 部分
+&lt;/h3&gt;&lt;p&gt;通过设置 go 环境变量设置私有仓库地址&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;修改环境变量&lt;/li&gt;
 &lt;/ol&gt;

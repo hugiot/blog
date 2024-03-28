@@ -12,11 +12,17 @@
         <pubDate>Tue, 26 Mar 2024 12:08:46 +0800</pubDate>
         
         <guid>https://hugiot.github.io/blog/p/golang-%E4%B9%8B%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86/</guid>
-        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;golang 模块管理，类似于 php 中的 composer 管理工具&lt;/p&gt;
-&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
-&lt;h3 id=&#34;帮助&#34;&gt;帮助&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+        <description>&lt;h2 id=&#34;简介&#34;&gt;
+    &lt;a href=&#34;#%e7%ae%80%e4%bb%8b&#34;&gt;#&lt;/a&gt;
+    简介
+&lt;/h2&gt;&lt;p&gt;golang 模块管理，类似于 php 中的 composer 管理工具&lt;/p&gt;
+&lt;h2 id=&#34;基础&#34;&gt;
+    &lt;a href=&#34;#%e5%9f%ba%e7%a1%80&#34;&gt;#&lt;/a&gt;
+    基础
+&lt;/h2&gt;&lt;h3 id=&#34;帮助&#34;&gt;
+    &lt;a href=&#34;#%e5%b8%ae%e5%8a%a9&#34;&gt;#&lt;/a&gt;
+    帮助
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -42,8 +48,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;why&lt;/span&gt;         &lt;span class=&#34;n&#34;&gt;explain&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;why&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;packages&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;or&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;modules&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;are&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;needed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;解释为什么需要该依赖&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;启用&#34;&gt;启用&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;启用&#34;&gt;
+    &lt;a href=&#34;#%e5%90%af%e7%94%a8&#34;&gt;#&lt;/a&gt;
+    启用
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -51,8 +59,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GO111MODULE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;on
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;查看模块列表&#34;&gt;查看模块列表&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;查看模块列表&#34;&gt;
+    &lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e6%a8%a1%e5%9d%97%e5%88%97%e8%a1%a8&#34;&gt;#&lt;/a&gt;
+    查看模块列表
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -60,8 +70,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go list -m -mod&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;mod all
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;下载依赖项&#34;&gt;下载依赖项&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;下载依赖项&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e4%be%9d%e8%b5%96%e9%a1%b9&#34;&gt;#&lt;/a&gt;
+    下载依赖项
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;提示：该操作会自动修改 go.mod 文件&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -84,8 +96,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go get golang.org/x/text@2df3781
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;查看依赖版本&#34;&gt;查看依赖版本&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;查看依赖版本&#34;&gt;
+    &lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e4%be%9d%e8%b5%96%e7%89%88%e6%9c%ac&#34;&gt;#&lt;/a&gt;
+    查看依赖版本
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -99,8 +113,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsc.io/sampler v1.0.0 v1.2.0 v1.2.1 v1.3.0 v1.3.1 v1.99.99
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;/div&gt;&lt;h3 id=&#34;安装依赖&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e4%be%9d%e8%b5%96&#34;&gt;#&lt;/a&gt;
+    安装依赖
+&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;提示：该操作会自动下载依赖项，并同步到项目 &lt;strong&gt;vendor&lt;/strong&gt; 目录下&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -113,9 +129,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go mod vendor
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;扩展&lt;/h2&gt;
-&lt;h3 id=&#34;修改环境变量&#34;&gt;修改环境变量&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%b1%95&#34;&gt;#&lt;/a&gt;
+    扩展
+&lt;/h2&gt;&lt;h3 id=&#34;修改环境变量&#34;&gt;
+    &lt;a href=&#34;#%e4%bf%ae%e6%94%b9%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f&#34;&gt;#&lt;/a&gt;
+    修改环境变量
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -125,8 +145,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GO111MODULE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;on
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go-module-代理&#34;&gt;go module 代理&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h3 id=&#34;go-module-代理&#34;&gt;
+    &lt;a href=&#34;#go-module-%e4%bb%a3%e7%90%86&#34;&gt;#&lt;/a&gt;
+    go module 代理
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -162,14 +184,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;go env -w &lt;span class=&#34;nv&#34;&gt;GOPROXY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://goproxy.io,direct
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;go-install-安装&#34;&gt;go install 安装&lt;/h3&gt;
-&lt;ol&gt;
+&lt;/div&gt;&lt;h3 id=&#34;go-install-安装&#34;&gt;
+    &lt;a href=&#34;#go-install-%e5%ae%89%e8%a3%85&#34;&gt;#&lt;/a&gt;
+    go install 安装
+&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;生成结果文件&lt;/li&gt;
 &lt;li&gt;自动将编译好的文件移动到 $GOPATH/pkg 或 $GOPATH/bin&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;常见问题&#34;&gt;常见问题&lt;/h2&gt;
-&lt;h3 id=&#34;terminal-prompts-disabled&#34;&gt;terminal prompts disabled&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;go mod tidy&lt;/code&gt; 出现 fatal: could not read Username for &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;常见问题&#34;&gt;
+    &lt;a href=&#34;#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98&#34;&gt;#&lt;/a&gt;
+    常见问题
+&lt;/h2&gt;&lt;h3 id=&#34;terminal-prompts-disabled&#34;&gt;
+    &lt;a href=&#34;#terminal-prompts-disabled&#34;&gt;#&lt;/a&gt;
+    terminal prompts disabled
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;go mod tidy&lt;/code&gt; 出现 fatal: could not read Username for &amp;lsquo;&lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com&lt;/a&gt;&amp;rsquo;: terminal prompts disabled 错误&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;

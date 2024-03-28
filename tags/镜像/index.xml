@@ -12,10 +12,14 @@
         <pubDate>Tue, 26 Mar 2024 10:23:05 +0800</pubDate>
         
         <guid>https://hugiot.github.io/blog/p/%E9%95%9C%E5%83%8F%E7%AB%99/</guid>
-        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;为加快国内下载指定仓库速度，一般使用国内镜像源进行加速。&lt;/p&gt;
-&lt;h2 id=&#34;镜像列表&#34;&gt;镜像列表&lt;/h2&gt;
-&lt;ul&gt;
+        <description>&lt;h2 id=&#34;简介&#34;&gt;
+    &lt;a href=&#34;#%e7%ae%80%e4%bb%8b&#34;&gt;#&lt;/a&gt;
+    简介
+&lt;/h2&gt;&lt;p&gt;为加快国内下载指定仓库速度，一般使用国内镜像源进行加速。&lt;/p&gt;
+&lt;h2 id=&#34;镜像列表&#34;&gt;
+    &lt;a href=&#34;#%e9%95%9c%e5%83%8f%e5%88%97%e8%a1%a8&#34;&gt;#&lt;/a&gt;
+    镜像列表
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developer.aliyun.com/mirror/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;阿里巴巴开源镜像站&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://mirrors.163.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
