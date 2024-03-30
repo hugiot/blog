@@ -6,7 +6,15 @@
         <description>Recent content in Tags on xiaocai&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 26 Mar 2024 14:47:50 +0800</lastBuildDate><atom:link href="https://hugiot.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 30 Mar 2024 09:38:43 +0800</lastBuildDate><atom:link href="https://hugiot.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>IOT</title>
+        <link>https://hugiot.github.io/blog/tags/iot/</link>
+        <pubDate>Sat, 30 Mar 2024 09:38:43 +0800</pubDate>
+        
+        <guid>https://hugiot.github.io/blog/tags/iot/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Crontab</title>
         <link>https://hugiot.github.io/blog/tags/crontab/</link>
         <pubDate>Tue, 26 Mar 2024 14:47:50 +0800</pubDate>
