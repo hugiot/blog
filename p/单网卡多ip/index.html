@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# 简介 正则表达式 # 修饰符 标记也称为修饰符，正则表达式的标记用于指定额外的匹配策略。 标记不卸载正则表达式里，标记位于表达式外，格式如下： 1 /pattern/s 修">
-<title>正则表达式</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# 前言 一次偶然的机会，发现一个 Debian 系统的设备（跟系统无关），通过 ifconfig 命令查看 IP 地址为：192.168.100.100。 但是登陆路由器后台，查看设">
+<title>单网卡多IP</title>
 
-<link rel='canonical' href='https://hugiot.github.io/blog/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
+<link rel='canonical' href='https://hugiot.github.io/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/'>
 
-<link rel="stylesheet" href="/blog/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="正则表达式">
-<meta property='og:description' content="# 简介 正则表达式 # 修饰符 标记也称为修饰符，正则表达式的标记用于指定额外的匹配策略。 标记不卸载正则表达式里，标记位于表达式外，格式如下： 1 /pattern/s 修">
-<meta property='og:url' content='https://hugiot.github.io/blog/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
+<link rel="stylesheet" href="/blog/scss/style.min.8e60baf4cd3fc55968717a6e39762f4d28ed7ef6007566b6c7970ad0fe907198.css"><meta property='og:title' content="单网卡多IP">
+<meta property='og:description' content="# 前言 一次偶然的机会，发现一个 Debian 系统的设备（跟系统无关），通过 ifconfig 命令查看 IP 地址为：192.168.100.100。 但是登陆路由器后台，查看设">
+<meta property='og:url' content='https://hugiot.github.io/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/'>
 <meta property='og:site_name' content='xiaocai&#39;s blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='正则' /><meta property='article:published_time' content='2024-03-26T10:35:51&#43;08:00'/><meta property='article:modified_time' content='2024-03-26T10:35:51&#43;08:00'/>
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="# 简介 正则表达式 # 修饰符 标记也称为修饰符，正则表达式的标记用于指定额外的匹配策略。 标记不卸载正则表达式里，标记位于表达式外，格式如下： 1 /pattern/s 修">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='network' /><meta property='article:tag' content='ip' /><meta property='article:published_time' content='2024-04-09T22:55:35&#43;08:00'/><meta property='article:modified_time' content='2024-04-09T22:55:35&#43;08:00'/>
+<meta name="twitter:title" content="单网卡多IP">
+<meta name="twitter:description" content="# 前言 一次偶然的机会，发现一个 Debian 系统的设备（跟系统无关），通过 ifconfig 命令查看 IP 地址为：192.168.100.100。 但是登陆路由器后台，查看设">
     <link rel="shortcut icon" href="/blog/favicon-32x32.png" />
 
     </head>
@@ -204,15 +204,26 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#修饰符">修饰符</a></li>
-    <li><a href="#元字符">元字符</a>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#原因">原因</a>
       <ol>
-        <li><a href="#非打印字符">非打印字符</a></li>
-        <li><a href="#特殊字符">特殊字符</a></li>
-        <li><a href="#限定符">限定符</a></li>
-        <li><a href="#定位符">定位符</a></li>
-        <li><a href="#补充其他字符">补充其他字符</a></li>
+        <li><a href="#好处">好处</a></li>
+      </ol>
+    </li>
+    <li><a href="#实践">实践</a>
+      <ol>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#ubuntu--debian">Ubuntu / Debian</a>
+          <ol>
+            <li><a href="#桌面系统方式一">桌面系统（方式一）</a></li>
+            <li><a href="#命令行方式二">命令行（方式二）</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#扩展">扩展</a>
+      <ol>
+        <li><a href="#secondary-ip次要-ip-地址">Secondary IP（次要 IP 地址）</a></li>
       </ol>
     </li>
   </ol>
@@ -242,7 +253,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/blog/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+            <a href="/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/">单网卡多IP</a>
         </h2>
     
         
@@ -264,7 +275,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2024-03-26 10:35:51</time>
+                <time class="article-time--published">2024-04-09 22:55:35</time>
             </div>
         
 
@@ -279,7 +290,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -301,359 +312,122 @@
     <section class="article-content">
     
     
-    <h2 id="简介">
-    <a href="#%e7%ae%80%e4%bb%8b">#</a>
-    简介
-</h2><p>正则表达式</p>
-<h2 id="修饰符">
-    <a href="#%e4%bf%ae%e9%a5%b0%e7%ac%a6">#</a>
-    修饰符
-</h2><p>标记也称为修饰符，正则表达式的标记用于指定额外的匹配策略。<br>
-标记不卸载正则表达式里，标记位于表达式外，格式如下：</p>
+    <h2 id="前言">
+    <a href="#%e5%89%8d%e8%a8%80">#</a>
+    前言
+</h2><p>一次偶然的机会，发现一个 Debian 系统的设备（跟系统无关），通过 <code>ifconfig</code> 命令查看 IP 地址为：<strong>192.168.100.100</strong>。</p>
+<p>但是登陆路由器后台，查看设备列表并未发现该设备，仅有一个可疑的 <strong>192.168.100.13</strong> 设备。</p>
+<p>神奇的是，通过 <code>ssh root@192.168.100.13</code> 和 <code>ssh root@192.168.100.100</code> 均能正常连接该设备。</p>
+<p>那么问题来了，同一设备为什么会出现两个不同的 IP 地址呢？而且两个 IP 还都能正常使用呢？</p>
+<h2 id="原因">
+    <a href="#%e5%8e%9f%e5%9b%a0">#</a>
+    原因
+</h2><p>经过百度求证，确定同一设备的同一网卡的确可以配置多个 IP 地址，而且还是一种常见的做法（汗！！！知识盲区）。</p>
+<h3 id="好处">
+    <a href="#%e5%a5%bd%e5%a4%84">#</a>
+    好处
+</h3><ol>
+<li>逻辑隔离：可以为不同的服务或应用绑定到不同的IP地址上，实现逻辑上的隔离，增强安全性；</li>
+<li>访问控制：通过配置多个IP地址，可以控制对特定资源的访问权限，限制潜在的安全威胁；</li>
+<li>网络迁移和扩展：在网络结构调整或扩展时，可以在不更换物理硬件的情况下，通过更改IP配置来适应新的网络环境；</li>
+<li>多网段通信：如果设备需要与不同网段的其他设备通信，配置多个IP地址可以实现跨越多个网段的通信。</li>
+</ol>
+<h2 id="实践">
+    <a href="#%e5%ae%9e%e8%b7%b5">#</a>
+    实践
+</h2><h3 id="windows">
+    <a href="#windows">#</a>
+    Windows
+</h3><ol>
+<li>通常可以通过：控制面板-&gt;网络和共享中心-&gt;更改适配器设置 来找到你的网卡</li>
+<li>之后选择你要配置的网卡，通过右键选择 属性-&gt;Internet 协议版本 4 (TCP/IPv4)-&gt;高级-&gt;添加 来完成</li>
+</ol>
+<h3 id="ubuntu--debian">
+    <a href="#ubuntu--debian">#</a>
+    Ubuntu / Debian
+</h3><h4 id="桌面系统方式一">
+    <a href="#%e6%a1%8c%e9%9d%a2%e7%b3%bb%e7%bb%9f%e6%96%b9%e5%bc%8f%e4%b8%80">#</a>
+    桌面系统（方式一）
+</h4><ol>
+<li>通常可以通过：设置-&gt;网络-&gt;IPv4
+<ul>
+<li>IPv4方式：<strong>手动</strong></li>
+<li>地址：
+<ul>
+<li>192.168.1.10 | 255.255.255.0 | 192.168.1.1</li>
+<li>192.168.1.11 | 255.255.255.0 | （此处无法填写）</li>
+<li>192.168.1.12 | 255.255.255.0 | （此处无法填写）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="命令行方式二">
+    <a href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%96%b9%e5%bc%8f%e4%ba%8c">#</a>
+    命令行（方式二）
+</h4><p><strong>添加</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/pattern/s
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 格式为：ip addr add {IP} dev {网卡名称}</span>
+</span></span><span class="line"><span class="cl">ip addr add 192.168.1.2/24 dev eth0
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">修饰符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>不区分大小写</td>
-</tr>
-<tr>
-<td>g</td>
-<td>全局匹配</td>
-</tr>
-<tr>
-<td>m</td>
-<td>多行匹配，使 ^ 和 $ 匹配每一行的开头和结尾</td>
-</tr>
-<tr>
-<td>s</td>
-<td>使 <code>.</code> 可以匹配所有字符，默认 <code>.</code> 是匹配换行符 <code>\n</code> 之外的任何字符</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="元字符">
-    <a href="#%e5%85%83%e5%ad%97%e7%ac%a6">#</a>
-    元字符
-</h2><p>正则表达式中一些特殊功能符号</p>
-<h3 id="非打印字符">
-    <a href="#%e9%9d%9e%e6%89%93%e5%8d%b0%e5%ad%97%e7%ac%a6">#</a>
-    非打印字符
-</h3><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">字符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\cx</td>
-<td>匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>匹配一个换页符。等价于 \x0c 和 \cL</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>匹配一个换行符。等价于 \x0a 和 \cJ</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>匹配一个回车符。等价于 \x0d 和 \cM</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。注意 Unicode 正则表达式会匹配全角空格符</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配任何非空白字符。等价于 [^ \f\n\r\t\v]</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>匹配一个制表符。等价于 \x09 和 \cI</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>匹配一个垂直制表符。等价于 \x0b 和 \cK</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="特殊字符">
-    <a href="#%e7%89%b9%e6%ae%8a%e5%ad%97%e7%ac%a6">#</a>
-    特殊字符
-</h3><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">字符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$</td>
-<td>匹配输入字符串的结尾位置。如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 <code>\n</code> 或 <code>\r</code>。要匹配 $ 字符本身，请使用 <code>\$</code></td>
-</tr>
-<tr>
-<td><code>()</code></td>
-<td>标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。要匹配这些字符，请使用 <code>\(</code> 和 <code>\)</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>匹配前面的子表达式零次或多次。要匹配 <code>*</code> 字符，请使用 <code>\*</code></td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>匹配前面的子表达式一次或多次。要匹配 <code>+</code> 字符，请使用 <code>\+</code></td>
-</tr>
-<tr>
-<td><code>.</code></td>
-<td>匹配除换行符 <code>\n</code> 之外的任何单字符。要匹配 <code>.</code> ，请使用 <code>\.</code></td>
-</tr>
-<tr>
-<td><code>[</code></td>
-<td>标记一个中括号表达式的开始。要匹配 <code>[</code>，请使用 <code>\[</code></td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。要匹配 ? 字符，请使用 <code>\?</code></td>
-</tr>
-<tr>
-<td>\</td>
-<td>将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。例如， n 匹配字符 n 。<code>\n</code> 匹配换行符。序列 <code>\\</code> 匹配 <code>\</code>，而 <code>\(</code> 则匹配 <code>(</code></td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>匹配输入字符串的开始位置，除非在方括号表达式中使用，当该符号在方括号表达式中使用时，表示不接受该方括号表达式中的字符集合。要匹配 ^ 字符本身，请使用 <code>\^</code></td>
-</tr>
-<tr>
-<td><code>{</code></td>
-<td>标记限定符表达式的开始。要匹配 {，请使用 <code>\{</code></td>
-</tr>
-<tr>
-<td>`</td>
-<td>`</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="限定符">
-    <a href="#%e9%99%90%e5%ae%9a%e7%ac%a6">#</a>
-    限定符
-</h3><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">字符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>匹配前面的子表达式零次或多次。例如，zo* 能匹配 &ldquo;z&rdquo; 以及 &ldquo;zoo&rdquo;。* 等价于{0,}</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配前面的子表达式一次或多次。例如，&lsquo;zo+&rsquo; 能匹配 &ldquo;zo&rdquo; 以及 &ldquo;zoo&rdquo;，但不能匹配 &ldquo;z&rdquo;。+ 等价于 {1,}</td>
-</tr>
-<tr>
-<td>?</td>
-<td>匹配前面的子表达式零次或一次。例如，&ldquo;do(es)?&rdquo; 可以匹配 &ldquo;do&rdquo; 、 &ldquo;does&rdquo; 中的 &ldquo;does&rdquo; 、 &ldquo;doxy&rdquo; 中的 &ldquo;do&rdquo; 。? 等价于 {0,1}</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>n 是一个非负整数。匹配确定的 n 次。例如，&lsquo;o{2}&rsquo; 不能匹配 &ldquo;Bob&rdquo; 中的 &lsquo;o&rsquo;，但是能匹配 &ldquo;food&rdquo; 中的两个 o</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td>n 是一个非负整数。至少匹配n 次。例如，&lsquo;o{2,}&rsquo; 不能匹配 &ldquo;Bob&rdquo; 中的 &lsquo;o&rsquo;，但能匹配 &ldquo;foooood&rdquo; 中的所有 o。&lsquo;o{1,}&rsquo; 等价于 &lsquo;o+&rsquo;。&lsquo;o{0,}&rsquo; 则等价于 &lsquo;o*&rsquo;</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。例如，&ldquo;o{1,3}&rdquo; 将匹配 &ldquo;fooooood&rdquo; 中的前三个 o。&lsquo;o{0,1}&rsquo; 等价于&rsquo;o?&rsquo;。请注意在逗号和两个数之间不能有空格</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="定位符">
-    <a href="#%e5%ae%9a%e4%bd%8d%e7%ac%a6">#</a>
-    定位符
-</h3><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">字符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^</td>
-<td>匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与 \n 或 \r 之后的位置匹配</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与 \n 或 \r 之前的位置匹配</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配一个单词边界，即字与空格间的位置</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>非单词边界匹配</td>
-</tr>
-</tbody>
-</table></div>
-<h3 id="补充其他字符">
-    <a href="#%e8%a1%a5%e5%85%85%e5%85%b6%e4%bb%96%e5%ad%97%e7%ac%a6">#</a>
-    补充其他字符
-</h3><div class="table-wrapper"><table>
-<thead>
-<tr>
-<th><span style="min-width: 100px; display: block">字符</span></th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(pattern)</td>
-<td>匹配 pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 &lsquo;(&rsquo; 或 &lsquo;)&rsquo;</td>
-</tr>
-<tr>
-<td>(?:pattern)</td>
-<td>匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 &ldquo;或&rdquo; 字符 `(</td>
-</tr>
-<tr>
-<td>(?=pattern)</td>
-<td>正向肯定预查（look ahead positive assert），在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，`Windows(?=95</td>
-</tr>
-<tr>
-<td>(?!pattern)</td>
-<td>正向否定预查(negative assert)，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如`Windows(?!95</td>
-</tr>
-<tr>
-<td>(?&lt;=pattern)</td>
-<td>反向(look behind)肯定预查，与正向肯定预查类似，只是方向相反。例如，`(?&lt;=95</td>
-</tr>
-<tr>
-<td>(?&lt;!pattern)</td>
-<td>反向否定预查，与正向否定预查类似，只是方向相反。例如`(?&lt;!95</td>
-</tr>
-<tr>
-<td>`x</td>
-<td>y`</td>
-</tr>
-<tr>
-<td>[xyz]</td>
-<td>字符集合。匹配所包含的任意一个字符。例如， &lsquo;[abc]&rsquo; 可以匹配 &ldquo;plain&rdquo; 中的 &lsquo;a&rsquo;</td>
-</tr>
-<tr>
-<td>[^xyz]</td>
-<td>负值字符集合。匹配未包含的任意字符。例如， &lsquo;[^abc]&rsquo; 可以匹配 &ldquo;plain&rdquo; 中的&rsquo;p&rsquo;、&rsquo;l&rsquo;、&lsquo;i&rsquo;、&rsquo;n&rsquo;</td>
-</tr>
-<tr>
-<td>[a-z]</td>
-<td>字符范围。匹配指定范围内的任意字符。例如，&rsquo;[a-z]&rsquo; 可以匹配 &lsquo;a&rsquo; 到 &lsquo;z&rsquo; 范围内的任意小写字母字符</td>
-</tr>
-<tr>
-<td>[^a-z]</td>
-<td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，&rsquo;[^a-z]&rsquo; 可以匹配任何不在 &lsquo;a&rsquo; 到 &lsquo;z&rsquo; 范围内的任意字符</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配一个单词边界，也就是指单词和空格间的位置。例如， &rsquo;er\b&rsquo; 可以匹配&quot;never&quot; 中的 &rsquo;er&rsquo;，但不能匹配 &ldquo;verb&rdquo; 中的 &rsquo;er&rsquo;</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配非单词边界。&rsquo;er\B&rsquo; 能匹配 &ldquo;verb&rdquo; 中的 &rsquo;er&rsquo;，但不能匹配 &ldquo;never&rdquo; 中的 &rsquo;er&rsquo;</td>
-</tr>
-<tr>
-<td>\cx</td>
-<td>匹配由 x 指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配一个数字字符。等价于 [0-9]</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配一个非数字字符。等价于 [^0-9]</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>匹配一个换页符。等价于 \x0c 和 \cL</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>匹配一个换行符。等价于 \x0a 和 \cJ</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>匹配一个回车符。等价于 \x0d 和 \cM</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配任何非空白字符。等价于 [^ \f\n\r\t\v]</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>匹配一个制表符。等价于 \x09 和 \cI</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>匹配一个垂直制表符。等价于 \x0b 和 \cK</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配字母、数字、下划线。等价于&rsquo;[A-Za-z0-9_]&rsquo;</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配非字母、数字、下划线。等价于 &lsquo;[^A-Za-z0-9_]&rsquo;</td>
-</tr>
-<tr>
-<td>\xn</td>
-<td>匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，&rsquo;\x41&rsquo; 匹配 &ldquo;A&rdquo;。&rsquo;\x041&rsquo; 则等价于 &lsquo;\x04&rsquo; &amp; &ldquo;1&rdquo;。正则表达式中可以使用 ASCII 编码</td>
-</tr>
-<tr>
-<td>\num</td>
-<td>匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。例如，&rsquo;(.)\1&rsquo; 匹配两个连续的相同字符</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>标识一个八进制转义值或一个向后引用。如果 \n 之前至少 n 个获取的子表达式，则 n 为向后引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值</td>
-</tr>
-<tr>
-<td>\nm</td>
-<td>标识一个八进制转义值或一个向后引用。如果 \nm 之前至少有 nm 个获得子表达式，则 nm 为向后引用。如果 \nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的向后引用。如果前面的条件都不满足，若 n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm</td>
-</tr>
-<tr>
-<td>\nml</td>
-<td>如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml</td>
-</tr>
-<tr>
-<td>\un</td>
-<td>匹配 n，其中 n 是一个用四个十六进制数字表示的 Unicode 字符。例如， \u00A9 匹配版权符号 (?)</td>
-</tr>
-</tbody>
-</table></div>
-
+</div><p><strong>删除</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 格式为：ip addr del {IP} dev {网卡名称}</span>
+</span></span><span class="line"><span class="cl">ip addr del 192.168.1.2/24 dev eth0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="扩展">
+    <a href="#%e6%89%a9%e5%b1%95">#</a>
+    扩展
+</h2><h3 id="secondary-ip次要-ip-地址">
+    <a href="#secondary-ip%e6%ac%a1%e8%a6%81-ip-%e5%9c%b0%e5%9d%80">#</a>
+    Secondary IP（次要 IP 地址）
+</h3><p>Secondary IP（次要IP地址）一般出现在 linux 系统下，它是分配给网络设备如路由器或计算机网络接口的额外IP地址，不同于该设备的主IP地址（Primary IP Address）。</p>
+<p>需要注意的是，Secondary IP 地址并不一定会被路由器直接使用，而是作为路由器的备用地址，用于在路由失败时进行通信。</p>
+<p>Secondary IP 地址不能通过 <code>ifconfig</code> 命令来查看，需要通过其他命令来查看，如 <code>ip addr</code> 命令。</p>
+<p>以下是 Ubuntu 系统下通过 <code>ip addr</code> 命令查看网卡的 IP 地址和 Secondary IP 地址的示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+</span></span><span class="line"><span class="cl">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span class="line"><span class="cl">    inet 127.0.0.1/8 scope host lo
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 ::1/128 scope host noprefixroute 
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">2: enp5s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+</span></span><span class="line"><span class="cl">    link/ether 04:42:1a:0b:0c:9a brd ff:ff:ff:ff:ff:ff
+</span></span><span class="line"><span class="cl">    inet 192.168.31.111/24 brd 192.168.31.255 scope global noprefixroute enp5s0
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet 192.168.31.222/24 brd 192.168.31.255 scope global secondary noprefixroute enp5s0
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -661,7 +435,9 @@
     
     <section class="article-tags">
         
-            <a href="/blog/tags/%E6%AD%A3%E5%88%99/">正则</a>
+            <a href="/blog/tags/network/">Network</a>
+        
+            <a href="/blog/tags/ip/">Ip</a>
         
     </section>
 
@@ -683,12 +459,12 @@
             
                 
 <article class="">
-    <a href="/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/">
+    <a href="/blog/p/modbus/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">单网卡多IP</h2>
+            <h2 class="article-title">Modbus</h2>
         </div>
     </a>
 </article>
@@ -696,12 +472,12 @@
             
                 
 <article class="">
-    <a href="/blog/p/modbus/">
+    <a href="/blog/p/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Modbus</h2>
+            <h2 class="article-title">正则表达式</h2>
         </div>
     </a>
 </article>

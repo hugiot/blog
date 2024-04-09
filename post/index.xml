@@ -6,7 +6,130 @@
         <description>Recent content in Posts on xiaocai&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 30 Mar 2024 09:38:43 +0800</lastBuildDate><atom:link href="https://hugiot.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 09 Apr 2024 22:55:35 +0800</lastBuildDate><atom:link href="https://hugiot.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>单网卡多IP</title>
+        <link>https://hugiot.github.io/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/</link>
+        <pubDate>Tue, 09 Apr 2024 22:55:35 +0800</pubDate>
+        
+        <guid>https://hugiot.github.io/blog/p/%E5%8D%95%E7%BD%91%E5%8D%A1%E5%A4%9Aip/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;
+    &lt;a href=&#34;#%e5%89%8d%e8%a8%80&#34;&gt;#&lt;/a&gt;
+    前言
+&lt;/h2&gt;&lt;p&gt;一次偶然的机会，发现一个 Debian 系统的设备（跟系统无关），通过 &lt;code&gt;ifconfig&lt;/code&gt; 命令查看 IP 地址为：&lt;strong&gt;192.168.100.100&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;但是登陆路由器后台，查看设备列表并未发现该设备，仅有一个可疑的 &lt;strong&gt;192.168.100.13&lt;/strong&gt; 设备。&lt;/p&gt;
+&lt;p&gt;神奇的是，通过 &lt;code&gt;ssh root@192.168.100.13&lt;/code&gt; 和 &lt;code&gt;ssh root@192.168.100.100&lt;/code&gt; 均能正常连接该设备。&lt;/p&gt;
+&lt;p&gt;那么问题来了，同一设备为什么会出现两个不同的 IP 地址呢？而且两个 IP 还都能正常使用呢？&lt;/p&gt;
+&lt;h2 id=&#34;原因&#34;&gt;
+    &lt;a href=&#34;#%e5%8e%9f%e5%9b%a0&#34;&gt;#&lt;/a&gt;
+    原因
+&lt;/h2&gt;&lt;p&gt;经过百度求证，确定同一设备的同一网卡的确可以配置多个 IP 地址，而且还是一种常见的做法（汗！！！知识盲区）。&lt;/p&gt;
+&lt;h3 id=&#34;好处&#34;&gt;
+    &lt;a href=&#34;#%e5%a5%bd%e5%a4%84&#34;&gt;#&lt;/a&gt;
+    好处
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;逻辑隔离：可以为不同的服务或应用绑定到不同的IP地址上，实现逻辑上的隔离，增强安全性；&lt;/li&gt;
+&lt;li&gt;访问控制：通过配置多个IP地址，可以控制对特定资源的访问权限，限制潜在的安全威胁；&lt;/li&gt;
+&lt;li&gt;网络迁移和扩展：在网络结构调整或扩展时，可以在不更换物理硬件的情况下，通过更改IP配置来适应新的网络环境；&lt;/li&gt;
+&lt;li&gt;多网段通信：如果设备需要与不同网段的其他设备通信，配置多个IP地址可以实现跨越多个网段的通信。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;实践&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%9e%e8%b7%b5&#34;&gt;#&lt;/a&gt;
+    实践
+&lt;/h2&gt;&lt;h3 id=&#34;windows&#34;&gt;
+    &lt;a href=&#34;#windows&#34;&gt;#&lt;/a&gt;
+    Windows
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;通常可以通过：控制面板-&amp;gt;网络和共享中心-&amp;gt;更改适配器设置 来找到你的网卡&lt;/li&gt;
+&lt;li&gt;之后选择你要配置的网卡，通过右键选择 属性-&amp;gt;Internet 协议版本 4 (TCP/IPv4)-&amp;gt;高级-&amp;gt;添加 来完成&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ubuntu--debian&#34;&gt;
+    &lt;a href=&#34;#ubuntu--debian&#34;&gt;#&lt;/a&gt;
+    Ubuntu / Debian
+&lt;/h3&gt;&lt;h4 id=&#34;桌面系统方式一&#34;&gt;
+    &lt;a href=&#34;#%e6%a1%8c%e9%9d%a2%e7%b3%bb%e7%bb%9f%e6%96%b9%e5%bc%8f%e4%b8%80&#34;&gt;#&lt;/a&gt;
+    桌面系统（方式一）
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;通常可以通过：设置-&amp;gt;网络-&amp;gt;IPv4
+&lt;ul&gt;
+&lt;li&gt;IPv4方式：&lt;strong&gt;手动&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;地址：
+&lt;ul&gt;
+&lt;li&gt;192.168.1.10 | 255.255.255.0 | 192.168.1.1&lt;/li&gt;
+&lt;li&gt;192.168.1.11 | 255.255.255.0 | （此处无法填写）&lt;/li&gt;
+&lt;li&gt;192.168.1.12 | 255.255.255.0 | （此处无法填写）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;命令行方式二&#34;&gt;
+    &lt;a href=&#34;#%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%96%b9%e5%bc%8f%e4%ba%8c&#34;&gt;#&lt;/a&gt;
+    命令行（方式二）
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;添加&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 格式为：ip addr add {IP} dev {网卡名称}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ip addr add 192.168.1.2/24 dev eth0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;删除&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 格式为：ip addr del {IP} dev {网卡名称}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ip addr del 192.168.1.2/24 dev eth0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;扩展&#34;&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%b1%95&#34;&gt;#&lt;/a&gt;
+    扩展
+&lt;/h2&gt;&lt;h3 id=&#34;secondary-ip次要-ip-地址&#34;&gt;
+    &lt;a href=&#34;#secondary-ip%e6%ac%a1%e8%a6%81-ip-%e5%9c%b0%e5%9d%80&#34;&gt;#&lt;/a&gt;
+    Secondary IP（次要 IP 地址）
+&lt;/h3&gt;&lt;p&gt;Secondary IP（次要IP地址）一般出现在 linux 系统下，它是分配给网络设备如路由器或计算机网络接口的额外IP地址，不同于该设备的主IP地址（Primary IP Address）。&lt;/p&gt;
+&lt;p&gt;需要注意的是，Secondary IP 地址并不一定会被路由器直接使用，而是作为路由器的备用地址，用于在路由失败时进行通信。&lt;/p&gt;
+&lt;p&gt;Secondary IP 地址不能通过 &lt;code&gt;ifconfig&lt;/code&gt; 命令来查看，需要通过其他命令来查看，如 &lt;code&gt;ip addr&lt;/code&gt; 命令。&lt;/p&gt;
+&lt;p&gt;以下是 Ubuntu 系统下通过 &lt;code&gt;ip addr&lt;/code&gt; 命令查看网卡的 IP 地址和 Secondary IP 地址的示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    inet 127.0.0.1/8 scope host lo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       valid_lft forever preferred_lft forever
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    inet6 ::1/128 scope host noprefixroute 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       valid_lft forever preferred_lft forever
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2: enp5s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc mq state UP group default qlen 1000
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    link/ether 04:42:1a:0b:0c:9a brd ff:ff:ff:ff:ff:ff
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    inet 192.168.31.111/24 brd 192.168.31.255 scope global noprefixroute enp5s0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       valid_lft forever preferred_lft forever
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    inet 192.168.31.222/24 brd 192.168.31.255 scope global secondary noprefixroute enp5s0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;       valid_lft forever preferred_lft forever
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Modbus</title>
         <link>https://hugiot.github.io/blog/p/modbus/</link>
         <pubDate>Sat, 30 Mar 2024 09:38:43 +0800</pubDate>
